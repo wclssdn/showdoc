@@ -27,7 +27,8 @@ class Mysql extends Driver{
         $dsn  =   'mysql:dbname='.$config['database'].';host='.$config['hostname'];
         if(!empty($config['hostport'])) {
             $dsn  .= ';port='.$config['hostport'];
-        }elseif(!empty($config['socket'])){
+        }
+        if(!empty($config['socket'])){
             $dsn  .= ';unix_socket='.$config['socket'];
         }
 
