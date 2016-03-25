@@ -1,45 +1,53 @@
 
-**简要描述：** 
+**简要描述：**
 
-- 用户注册接口
+- 开播接口
 
-**请求URL：** 
-- ` http://xx.com/api/user/register `
-  
+**请求URL：**
+- ` http://live.huajiao.com/live/start `
+
 **请求方式：**
-- POST 
+- POST
 
-**参数：** 
+**参数：**
 
-|参数名|必选|类型|说明|
-|:----    |:---|:----- |-----   |
-|username |是  |string |用户名   |
-|password |是  |string | 密码    |
-|name     |否  |string | 昵称    |
+|  参数名 |必选|类型|说明|
+|:----    |:---|:----- |-----|
+|username |是  |string |用户名|
+|password |是  |string |密码|
+|name     |否  |string |昵称|
 
  **返回示例**
 
-``` 
-  {
-    "error_code": 0,
+```
+{
+    "errno": 0,
+    "errmsg": "操作成功",
+    "consume": 5,
+    "time": 1458898469,
+    "md5": "36cef0d523588b5994ede8eb7dddb739",
     "data": {
-      "uid": "1",
-      "username": "12154545",
-      "name": "吴系挂",
-      "groupid": 2 ,
-      "reg_time": "1436864169",
-      "last_login_time": "0",
+        "id": "5787",
+        "name": "live",
+        "total": "978",
+        "capacity": "0",
+        "extends": {
+            "type": "1"
+        }
     }
-  }
+}
 ```
 
- **返回参数说明** 
+ **返回参数说明**
 
 |参数名|类型|说明|
-|:-----  |:-----|-----                           |
-|groupid |int   |用户组id，1：超级管理员；2：普通用户  |
+|:-----  |:-----|-----|
+|errno   |int   |错误代码 |
+|errmsg  |int   |错误描述  |
+|consume |int   |接口内部消耗时间 单位毫秒|
+|time    |int   |服务器时间戳|
+|data    |object|数据对象 可选 |
 
- **备注** 
+ **备注**
 
 - 更多返回错误代码请看首页的错误代码描述
-
